@@ -32,7 +32,7 @@ def log_config():
 TOPIC = os.environ.get("KAFKA_TOPIC", "platform.inventory.events")
 KAFKA_GROUP = os.environ.get("KAFKA_GROUP", "insights-host-delete")
 BOOTSTRAP_SERVERS = os.environ.get("KAFKA_BOOTSTRAP_SERVERS", "localhost:29092").split()
-LEGACY_URL = "https://access.redhat.com/r/insights/v1/systems"
+LEGACY_URL = "https://classicqa.cloud.paas.psi.redhat.com/r/insights/inventory"
 LOG_LEVEL = os.environ.get("LOG_LEVEL", "INFO")
 LOG_GROUP = os.environ.get("LOG_GROUP", "platform-dev")
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", None)
