@@ -38,6 +38,8 @@ LOG_GROUP = os.environ.get("LOG_GROUP", "platform-dev")
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", None)
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", None)
 AWS_REGION = os.environ.get("AWS_REGION", "us-east-1")
+PROXY_TOKEN_HEADER = os.environ.get("PROXY_TOKEN_HEADER", None)
+PROXY_TOKEN = os.environ.get("PROXY_TOKEN", None)
 NAMESPACE = get_namespace()
 
 LEGACY_USERNAME = os.environ.get("LEGACY_USERNAME", None)

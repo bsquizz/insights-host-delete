@@ -17,9 +17,15 @@ def handle_message(parsed):
 def send_request(insights_id, account):
     logger.debug("sending delete request to legacy")
     URL = "{0}/{1}?account_number={2}".format(config.LEGACY_URL, insights_id, account)
-    r = requests.delete(URL, auth=(config.LEGACY_USERNAME, config.LEGACY_PASSWORD))
+
+    if config.NAMESPACE is "platform-qa":
+        r = requests.delete(URL, auth=(config.LEGACY_USERNAME, config.LEGACY_PASSWORD), 
+                                headers={config.PROXY_TOKEN_HEADER: config.PROXY_TOKEN})                                
+    else:
+        r = requests.delete(URL, auth=(config.LEGACY_USERNAME, config.LEGACY_PASSWORD))
+
     if r.status_code not in [200, 204]:
-        logger.error("Request failed with error: [%s] %s %s", r.status_code, r.text, r.content)
+        logger.error("Request failed with error: [%s] %s", r.status_code, r.text)
 
 
 def main():
