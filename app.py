@@ -18,7 +18,7 @@ def send_request(insights_id, account):
     logger.debug("sending delete request to legacy")
     URL = "{0}/{1}?account_number={2}".format(config.LEGACY_URL, insights_id, account)
 
-    if config.NAMESPACE is "platform-qa":
+    if (config.PROXY_TOKEN and config.PROXY_TOKEN_HEADER):
         r = requests.delete(URL, auth=(config.LEGACY_USERNAME, config.LEGACY_PASSWORD), 
                                 headers={config.PROXY_TOKEN_HEADER: config.PROXY_TOKEN})                                
     else:
