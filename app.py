@@ -26,6 +26,8 @@ def send_request(insights_id, account):
 
     if r.status_code not in [200, 204]:
         logger.error("Request failed with error: [%s] %s", r.status_code, r.text)
+    elif r.status_code is 404:
+        logger.debug("Request completed with error: [%s] %s", r.status_code, r.text)
 
 
 def main():
